@@ -20,7 +20,7 @@ public class MainServer {
     int count = 0;
     ServerSocket ss;
     
-    ServerModel model = BServerModel.build();
+    ServerModel model = new ServerModel();
     public MainServer(){
          try {
             ip = InetAddress.getLocalHost();

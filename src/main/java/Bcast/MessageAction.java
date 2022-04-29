@@ -10,5 +10,6 @@ package Bcast;
  */
 public enum MessageAction {
     ADD,
-    DELETE
+    DELETE,
+    EDIT
 }

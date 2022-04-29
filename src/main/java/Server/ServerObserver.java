@@ -24,7 +24,7 @@ public class ServerObserver implements IObserver{
     DataOutputStream dos;
     Gson convert = new Gson();
     Thread t;
-    ServerModel m;// = BServerModel.build();
+    ServerModel m;
 
     public ServerObserver(Socket cs, ServerModel m) {
         this.cs = cs;
@@ -47,7 +47,8 @@ public class ServerObserver implements IObserver{
                         m.save(r.getMessage());
                     else if (r.getAction() == MessageAction.DELETE)
                         m.remove(r.getMessage());
-
+                    else if (r.getAction() == MessageAction.EDIT)
+                                            m.edit(r.getMessage());
                     
                     
                 }

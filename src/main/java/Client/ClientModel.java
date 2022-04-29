@@ -102,6 +102,17 @@ public class ClientModel {
         }
     }
     
+    public void edit (Message mess){
+        System.out.println("CM_REM: "+ mess);
+        Request req = new Request(mess, MessageAction.EDIT);
+        String send_str = convert.toJson(req);
+        try{
+            dos.writeUTF(send_str);
+        } catch (IOException ex) {
+            Logger.getLogger(ClientModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+        
     public ArrayList<Message> get(){
         return mes;
     }

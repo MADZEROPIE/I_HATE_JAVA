@@ -49,6 +49,16 @@ public class ServerModel {
         update();
     }
     
+    public void edit (Message mes){
+        System.out.println("trying to EDIT message: " + mes);
+        Session session = BHibernate.getSesFac().openSession();
+        Transaction trans = session.beginTransaction();
+        session.update(mes);
+        trans.commit();
+        session.close();
+        update();
+    }
+    
     List<Message> get(){
         List<Message> msg = (List<Message>)BHibernate.getSesFac().openSession().createQuery("From Message").list();
         return msg;

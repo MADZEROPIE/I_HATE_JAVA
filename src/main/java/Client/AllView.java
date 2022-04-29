@@ -12,7 +12,7 @@ import Bcast.Message;
  * @author MADZEROPIE
  */
 public class AllView extends javax.swing.JPanel implements IObserver{
-    ClientModel model = BClientModel.build();//new ClientModel();
+    ClientModel model = new ClientModel();
     
 
     /**
@@ -21,8 +21,6 @@ public class AllView extends javax.swing.JPanel implements IObserver{
     public AllView() {
         initComponents();
         try {
-            //BClientModel builder = new BClientModel();
-            //model =  new ClientModel();//builder.build();
             model.addObserver(this);
         }
         catch(Exception e){
@@ -100,7 +98,7 @@ public class AllView extends javax.swing.JPanel implements IObserver{
         for (Message msg: model.get()){
             System.out.println("All view get message: " + msg);
             ViewTask vt = new ViewTask();
-            vt.init(msg);
+            vt.init(msg, model);
             jPanel1.add(vt);
         }
         
